@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue1"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/main_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/login_banner" />
+
+        <TextView
+            android:id="@+id/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:text="Welcome Back!"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/main_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Please log into Your existing account"
+            android:textColor="@color/white_light"
+            android:textSize="@dimen/_16sdp" />
+
+        <EditText
+            android:id="@+id/main_email"
+            style="@style/edit_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_title1"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:hint="Enter Email Id"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/main_password"
+            style="@style/edit_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_email"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:hint="Enter Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/main_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/main_password"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:backgroundTint="@color/green"
+            android:text="Log in"
+            android:textSize="@dimen/_20sdp" />
+    </RelativeLayout>
+</ScrollView>
