@@ -2,6 +2,7 @@ package internship.online.second;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button login;
+    Button login,signup;
     EditText email,password;
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -21,6 +22,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        signup = findViewById(R.id.main_signup);
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
 
         login = findViewById(R.id.main_login);
         email = findViewById(R.id.main_email);
@@ -45,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
                     System.out.println("Signin Successfully");
                     Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_LONG).show();
                     Snackbar.make(view, "Login Successfully", Snackbar.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                    startActivity(intent);
+
                 }
             }
         });
