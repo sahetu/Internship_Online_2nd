@@ -2,6 +2,7 @@ package internship.online.second;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +15,16 @@ public class SignupActivity extends AppCompatActivity {
     Button signup, login;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+    SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        db = openOrCreateDatabase("InternshipOnline2nd",MODE_PRIVATE,null);
+        String tableQuery = "CREATE TABLE IF NOT EXISTS USERS(USERID INTEGER PRIMARY KEY AUTOINCREMENT,NAME VARCHAR(100), EMAIL VARCHAR(100),CONTACT INT(10),PASSWORD VARCHAR(20))";
+        db.execSQL(tableQuery);
 
         name = findViewById(R.id.signup_name);
         email = findViewById(R.id.signup_email);
@@ -56,6 +63,8 @@ public class SignupActivity extends AppCompatActivity {
                     confirmPassword.setError("Confirm Password Does Not Match");
                 }
                 else {
+                    String insertQuery = "INSERT INTO USERS VALUES(NULL,'"+name.getText().toString()+"','"+email.getText().toString()+"','"+contact.getText().toString()+"','"+password.getText().toString()+"')";
+                    db.execSQL(insertQuery);
                     Toast.makeText(SignupActivity.this, "Signup Successfully", Toast.LENGTH_SHORT).show();
                     onBackPressed();
                 }
