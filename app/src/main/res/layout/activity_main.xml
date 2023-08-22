@@ -50,21 +50,55 @@
             android:hint="Enter Email Id"
             android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/main_password"
-            style="@style/edit_16"
+        <RelativeLayout
+            android:id="@+id/main_password_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/main_email"
+            android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:hint="Enter Password"
-            android:inputType="textPassword" />
+            android:background="@drawable/custom_border">
+
+            <RelativeLayout
+                android:id="@+id/main_password_hide_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/main_password_hidden"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/hidden"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/main_password_show"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:src="@drawable/visible" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:background="@android:color/transparent"
+                android:layout_toLeftOf="@id/main_password_hide_show"
+                android:id="@+id/main_password"
+                style="@style/edit_16_without_border"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Password"
+                android:inputType="textPassword" />
+
+        </RelativeLayout>
 
         <Button
             android:id="@+id/main_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/main_password"
+            android:layout_below="@id/main_password_layout"
             android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_50sdp"
             android:backgroundTint="@color/green"

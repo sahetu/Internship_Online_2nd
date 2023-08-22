@@ -18,4 +18,11 @@
         <item name="android:textColorHint">@color/white_light</item>
     </style>
 
+    <style name="edit_16_without_border" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white_light</item>
+    </style>
+
 </resources>
